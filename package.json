@@ -1,10 +1,11 @@
 {
   "name": "video-converter",
+  "homepage": " https://vats-tushar.github.io/Video-Converter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy" : "npm run build", 
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "vite build",
@@ -13,6 +14,7 @@
   },
   "dependencies": {
     "convert-video": "^1.0.0",
+    "gh-pages": "^6.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
