@@ -59,8 +59,8 @@
 
 .theme__icon {
   display: block;
-  top: 0.75em;
-  left: 0.75em;
+  top: 3vh;
+  left: 1vw;
   width: 1.5em;
   height: 1.5em;
 }
