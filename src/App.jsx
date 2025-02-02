@@ -1,31 +1,43 @@
-import { useState } from 'react';
 import './App.css';
-import VideoConverter from 'convert-video';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import MainPage from './components/MainPage';
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState([]);
-  function handleUploadVideo(e){
-    setCount(e.target.files);
+  const [dark, setDark] = useState(false);
+  function handleTheme() {
+    setDark(prev=>!prev);
   }
-  async function handleConvert(){
-    for(let i=0;i<count.length;i++){
-      let q = await VideoConverter.convert(count[i], 'mp4');
-      downloadVideo(q);
-    }
-  }
-  function downloadVideo(convertedVideoDataObj) {
-    let a = document.createElement("a");
-    a.href = convertedVideoDataObj.data;
-    a.download = convertedVideoDataObj.name + "." + convertedVideoDataObj.format;
-    a.click();
-}
 
   return (
-    <>
-      <input type='file' accept='.mov' onChange={handleUploadVideo} multiple/>
-      <button onClick={handleConvert}>Convert</button>
+    <div className={`fullPage ${dark ? 'darkBack' : 'lightBack'}`}>
+      <Router>
+        <div className={dark ? ' header-dark' : ' header-light'}>
+          <span style={{fontWeight : '600', fontSize: '28px', fontFamily: 'cursive'}}>Video Converter</span>
 
-    </>
+          <label htmlFor="theme" className="theme">
+            <span className="theme__toggle-wrap">
+              <input id="theme" className="theme__toggle" type="checkbox" role="switch" name="theme" value="dark" checked={dark} onChange={handleTheme}/>
+              <span className="theme__fill"></span>
+              <span className={dark ? 'theme__icon2' : 'theme__icon'}>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+                <span className="theme__icon-part"></span>
+              </span>
+            </span>
+          </label>
+        </div>
+        <Routes>
+          <Route exact path='/' element={<MainPage selectTheme={dark}/>}></Route>
+        </Routes>
+      </Router>
+    </div>
   )
 }
 
