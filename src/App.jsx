@@ -1,6 +1,7 @@
 import './App.css';
 import style from './components/MainPage.module.css'
 import { useState } from 'react';
+import VideoConverter from 'convert-video'
 
 function App() {
   const [count, setCount] = useState([]);
@@ -58,7 +59,7 @@ function App() {
             <input className={dark ? style.dark : style.light} type='file' accept='.mov' onChange={handleUploadVideo} multiple/>
             <button onClick={handleConvert}>Convert</button>
         </div>
-        
+
         <div style={{display: 'flex', width : '100vw', justifyContent : 'center', alignItems: 'center'}}>
           <div style={{marginRight: '6px', color : dark ? 'white' : 'black'}}>
               {convertedFiles.length} Converted

@@ -59,15 +59,15 @@
 
 .theme__icon {
   display: block;
-  top: 3vh;
+  top: 2vh;
   left: 1vw;
   width: 1.5em;
   height: 1.5em;
 }
 .theme__icon2 {
   display: block;
-  top: 0.75em;
-  left: 1.25rem;
+  top: 2vh;
+  left: 1.5vw;
   width: 1.5em;
   height: 1.5em;
 }
