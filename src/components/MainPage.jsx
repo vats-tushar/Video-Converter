@@ -29,8 +29,9 @@ const MainPage = () => {
     
   }
   return (
-    <><div className={`fullPage ${dark ? 'darkBack' : 'lightBack'}`}>
-      <div className={dark ? ' header-dark' : ' header-light'}>
+    <>
+      <div className={`fullPage ${dark ? 'darkBack' : 'lightBack'}`}>
+        <div className={dark ? ' header-dark' : ' header-light'}>
           <span style={{fontWeight : '600', fontSize: '28px', fontFamily: 'cursive'}}>Video Converter</span>
 
           <label htmlFor="theme" className="theme">
@@ -61,7 +62,7 @@ const MainPage = () => {
           </div>
           <button onClick={downloadVideo}>Download</button>
         </div>
-    </div> 
+      </div> 
     </>
   )
 }
